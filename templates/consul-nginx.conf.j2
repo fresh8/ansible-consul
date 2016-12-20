@@ -30,6 +30,6 @@ server {
   # --- logging ---------------------------------------------------------------
 
   error_log /var/log/nginx/error-consul.log;
-  access_log /var/log/nginx/access-consul.log;
+  access_log {{ consul_ui_nginx_access_log }};
 
   }
