@@ -162,6 +162,14 @@
     - reload systemd
     - "{{ consul_restart_handler }}"
 
+- name: enable consul systemd unit on startup
+  systemd:
+    enabled: yes
+    name: consul
+  when: consul_use_systemd
+  notify:
+    - reload systemd
+
 - name: copy consul init.d script
   template: >
     src={{consul_initd_template}}
