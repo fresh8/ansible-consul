@@ -204,6 +204,7 @@
     owner={{consul_user}}
     group={{consul_group}}
     mode=0755
+  tags: consul_config
   notify:
     - "{{ consul_restart_handler }}"
 
