@@ -28,7 +28,7 @@ consul_cli_download: "https://github.com/CiscoCloud/consul-cli/archive/{{ consul
 
 consul_home: /opt/consul
 consul_config_dir: /etc/consul.d
-consul_config_file: /etc/consul.conf
+consul_config_file: /etc/consul.json
 consul_log_file: /var/log/consul
 consul_data_dir: "{{ consul_home }}/data"
 
