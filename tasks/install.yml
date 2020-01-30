@@ -8,7 +8,7 @@
 - name: install deps (Ubuntu)
   apt: >
     pkg={{item}}
-    state=installed
+    state=present
   with_items:
     - unzip
     - jq
@@ -17,7 +17,7 @@
 - name: install deps (RHEL)
   yum: >
     pkg={{item}}
-    state=installed
+    state=present
   with_items:
     - unzip
     - jq

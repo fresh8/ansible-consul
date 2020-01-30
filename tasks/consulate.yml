@@ -8,7 +8,7 @@
 - name: install deps (Ubuntu)
   apt: >
     pkg={{item}}
-    state=installed
+    state=present
   with_items:
     - python-pip
     - python-dev
@@ -17,7 +17,7 @@
 - name: install deps (RHEL)
   yum: >
     name={{item}}
-    state=installed
+    state=present
   with_items:
     - python-pip
     - python-devel
