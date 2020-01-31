@@ -7,13 +7,13 @@
 - name: install deps (Ubuntu)
   apt:
     pkg: dnsmasq
-    state: installed
+    state: present
   when: ansible_os_family == "Debian"
 
 - name: install deps (RHEL)
   yum:
     name: dnsmasq
-    state: installed
+    state: present
   when: ansible_os_family == "RedHat"
 
 - name: ensure configure directory

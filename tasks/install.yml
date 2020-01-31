@@ -49,7 +49,7 @@
     name={{consul_user}}
     group={{consul_group}}
     system=yes
-  when: consul_group_created|changed
+  when: consul_group_created
 
 - name: create consul directory
   file: >
@@ -92,7 +92,7 @@
     src={{ consul_download_folder }}/{{ consul_archive }}
     dest={{ consul_home }}/bin
     copy=false
-  when: consul_was_downloaded|changed
+  when: consul_was_downloaded
 
 - name: create TLS key
   no_log: True
@@ -137,7 +137,7 @@
     owner={{consul_user}}
     group={{consul_group}}
     recurse=yes
-  when: consul_was_downloaded|changed
+  when: consul_was_downloaded
 
 - name: copy consul upstart script
   template: >
@@ -197,14 +197,13 @@
     group={{consul_group}}
     mode=0755
 
-- name: consul config file
+- name: consul kube config file
   template: >
-    src={{consul_config_template}}
-    dest={{ consul_config_file }}
+    src="kube_config.j2"
+    dest=/etc/kube/kube_config.conf
     owner={{consul_user}}
     group={{consul_group}}
     mode=0755
-  tags: consul_config
   notify:
     - "{{ consul_restart_handler }}"
 
