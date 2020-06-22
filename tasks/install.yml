@@ -197,6 +197,11 @@
     group={{consul_group}}
     mode=0755
 
+- name: create directory for kube conf
+  file:
+    path: /etc/kube
+    state: directory
+
 - name: consul kube config file
   template: >
     src="kube_config.j2"
